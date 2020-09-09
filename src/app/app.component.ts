@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-tour-of-heroes';
+
+  constructor(private snackBar: MatSnackBar) {
+  }
+  title = 'Hacknowledge components';
+
+  toppings = new FormControl();
+  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+
+  openSnackBar(): void {
+    this.snackBar.open('Bienvenue chez Hacknowledge', 'OK', {
+      duration: 2000,
+    });
+  }
+
 }
